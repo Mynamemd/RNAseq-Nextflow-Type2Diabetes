@@ -1,0 +1,16 @@
+# Nextflow temporary and execution files
+work/
+.nextflow/
+.nextflow.log*
+
+# Heavy Sequencing Data and BAM files  
+*.fastq.gz
+*.fq.gz
+*.bam
+*.bai
+
+# Reference genome index files
+reference/
+
+# Output BAMs
+results.nf/bams/
