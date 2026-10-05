@@ -65,12 +65,14 @@ process HISAT2_ALIGN {
 
     output:
     tuple val(sample_id), path("${sample_id}_sorted.bam"), emit: bam
+    tuple val(sample_id), path("${sample_id}_sorted.bam.bai"), emit: bai
 
     script:
     """
     hisat2 -p 2 -x ${params.hisat2_idx} -1 ${trim1} -2 ${trim2} | \
     samtools view -bS - | \
     samtools sort -o ${sample_id}_sorted.bam -
+    samtools index ${sample_id}_sorted.bam
     """
 }
 
